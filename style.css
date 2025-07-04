@@ -3,27 +3,23 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
-   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
   margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .container {
-  background: white;
-  padding: 30px 40px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
+  padding: 20px;
+  max-width: 600px;
   width: 100%;
-  text-align: center;
+  text-align: left;
 }
 
 h2 {
-  margin-top: 0;
-  font-size: 24px;
+  font-size: 22px;
   color: #111;
+  margin: 0 0 10px 0;
 }
 
 p {
@@ -32,25 +28,32 @@ p {
   margin-bottom: 20px;
 }
 
-form input[type="text"],
+form {
+  display: flex;
+  gap: 0;
+}
+
 form input[type="email"] {
-  width: 100%;
+  flex: 1;
   padding: 10px 12px;
-  margin-bottom: 15px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 4px 0 0 4px;
   font-size: 14px;
+  margin: 0;
+  outline: none;
 }
 
 form button {
   background-color: #000;
   color: #fff;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
+  padding: 10px 20px;
+  border: 1px solid #000;
+  border-radius: 0 4px 4px 0;
   font-size: 14px;
   cursor: pointer;
-  width: 100%;
+  margin: 0;
+  outline: none;
+  white-space: nowrap;
 }
 
 form button:hover {

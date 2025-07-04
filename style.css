@@ -5,7 +5,7 @@ body {
   margin: 0;
   padding: 0;
   /* Adding some padding to the body so the component isn't stuck to the edge */
-  padding: 20px; 
+  padding: 10px; 
   display: flex;
   justify-content: flex-start;
 }

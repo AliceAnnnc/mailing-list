@@ -3,25 +3,24 @@
 body {
   font-family: 'Open Sans', sans-serif;
   margin: 0;
-  padding: 0; /* Padding removed from body */
-  /* Added a top border to the body to match the image */
-  border-top: 5px solid #000; 
+  padding: 0;
+  display: flex;
+  justify-content: center;
 }
 
 .container {
-  /* This padding is for the SPACE INSIDE the component, which you circled in red */
-  padding: 40px; 
-  width: 500px; /* Sets the width to make the form longer than the text */
-  text-align: left;
-  /* Added a left border to the container to match the image */
-  border-left: 3px solid #000;
+  padding: 30px 40px;
+  border-radius: 8px;
+  box-shadow: none;
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
 }
 
 h2 {
-  font-size: 22px;
+  margin-top: 0;
+  font-size: 24px;
   color: #111;
-  margin: 0 0 10px 0;
-  font-weight: 600;
 }
 
 p {
@@ -30,33 +29,25 @@ p {
   margin-bottom: 20px;
 }
 
-form {
-  display: flex;
-  width: 100%;
-  gap: 0;
-}
-
+form input[type="text"],
 form input[type="email"] {
-  flex: 1;
+  width: 100%;
   padding: 10px 12px;
+  margin-bottom: 15px;
   border: 1px solid #ccc;
-  border-radius: 4px 0 0 4px;
+  border-radius: 4px;
   font-size: 14px;
-  margin: 0;
-  outline: none;
 }
 
 form button {
   background-color: #000;
   color: #fff;
-  padding: 10px 20px;
-  border: 1px solid #000;
-  border-radius: 0 4px 4px 0;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
   font-size: 14px;
   cursor: pointer;
-  margin: 0;
-  outline: none;
-  white-space: nowrap;
+  width: 100%;
 }
 
 form button:hover {

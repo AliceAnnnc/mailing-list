@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Join Our Mailing List</title>
+  <title>Join Mailing List</title>
   <link rel="stylesheet" href="style.css" />
 
   <script>
@@ -11,7 +11,7 @@
 
     function onloadCallback() {
       widgetId = grecaptcha.render("recaptcha-container", {
-        sitekey: "6LfI-3UrAAAAAKvgE4ZPXpjzaj0OT-yQh51-nYo5",
+        sitekey: "6LfJ-3UrAAAAAAUITcdYjKLSNzcrx2J6D7G_ZXvD",
         size: "invisible",
         callback: onSubmit
       });
@@ -22,7 +22,7 @@
       const formData = new FormData(form);
       formData.append("g-recaptcha-response", token);
 
-      fetch("https://script.google.com/macros/s/AKfycbwnNRRnA41dXnxeUo4qj_f_UzIzusPBJUIL2k6gtOJTCyk6CZe-yp8KvpgRU4If3KEwqg/exec", {
+      fetch("https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec", {
         method: "POST",
         body: formData
       })
@@ -60,10 +60,7 @@
       </div>
     </form>
 
-    <!-- Message area for result -->
     <p id="form-response" class="hidden"></p>
-
-    <!-- reCAPTCHA container (required) -->
     <div id="recaptcha-container" style="display:none;"></div>
   </div>
 </body>

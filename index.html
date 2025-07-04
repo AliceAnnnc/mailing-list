@@ -5,19 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Join Our Mailing List</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
-</head>
-<body>
-  <div class="container">
-    <form id="mailing-form">
-      <div class="form-row">
-        <input type="email" name="email" placeholder="Enter your email" required />
-        <button type="submit">Subscribe</button>
-      </div>
-    </form>
-    <!-- ✅ ADD THIS hidden div so reCAPTCHA has a real DOM element -->
-    <div id="recaptcha-container" style="display:none;"></div>
-  </div>
 
   <script>
     let widgetId;
@@ -29,11 +16,6 @@
         callback: onSubmit
       });
     }
-
-    document.getElementById("mailing-form").addEventListener("submit", function (e) {
-      e.preventDefault();
-      grecaptcha.execute(widgetId);
-    });
 
     function onSubmit(token) {
       const form = document.getElementById("mailing-form");
@@ -51,6 +33,30 @@
       })
       .catch(err => alert("Something went wrong: " + err));
     }
+
+    // Wait until page is loaded before binding
+    window.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("mailing-form");
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        grecaptcha.execute(widgetId);
+      });
+    });
   </script>
+
+  <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+</head>
+<body>
+  <div class="container">
+    <form id="mailing-form">
+      <div class="form-row">
+        <input type="email" name="email" placeholder="Enter your email" required />
+        <button type="submit">Subscribe</button>
+      </div>
+    </form>
+
+    <!-- This is the required hidden container for reCAPTCHA -->
+    <div id="recaptcha-container" style="display:none;"></div>
+  </div>
 </body>
 </html>

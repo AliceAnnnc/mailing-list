@@ -22,7 +22,7 @@
       const formData = new FormData(form);
       formData.append("g-recaptcha-response", token);
 
-      fetch("https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec", {
+      fetch("https://script.google.com/macros/s/AKfycbwnNRRnA41dXnxeUo4qj_f_UzIzusPBJUIL2k6gtOJTCyk6CZe-yp8KvpgRU4If3KEwqg/exec", {
         method: "POST",
         body: formData
       })

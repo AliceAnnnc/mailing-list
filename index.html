@@ -28,13 +28,18 @@
       })
       .then(res => res.text())
       .then(data => {
-       document.getElementById("form-response").textContent = data;
+        const responseBox = document.getElementById("form-response");
+        responseBox.textContent = data;
+        responseBox.classList.remove("hidden");
         form.reset();
       })
-      .catch(err => alert("Something went wrong: " + err));
+      .catch(err => {
+        const responseBox = document.getElementById("form-response");
+        responseBox.textContent = "Something went wrong. Please try again.";
+        responseBox.classList.remove("hidden");
+      });
     }
 
-    // Wait until page is loaded before binding
     window.addEventListener("DOMContentLoaded", function () {
       const form = document.getElementById("mailing-form");
       form.addEventListener("submit", function (e) {
@@ -55,7 +60,10 @@
       </div>
     </form>
 
-    <!-- This is the required hidden container for reCAPTCHA -->
+    <!-- Message area for result -->
+    <p id="form-response" class="hidden"></p>
+
+    <!-- reCAPTCHA container (required) -->
     <div id="recaptcha-container" style="display:none;"></div>
   </div>
 </body>

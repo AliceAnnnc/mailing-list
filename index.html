@@ -15,18 +15,20 @@
         <button type="submit">Subscribe</button>
       </div>
     </form>
+    <!-- ✅ ADD THIS hidden div so reCAPTCHA has a real DOM element -->
+    <div id="recaptcha-container" style="display:none;"></div>
   </div>
 
   <script>
     let widgetId;
 
-    const onloadCallback = () => {
-      widgetId = grecaptcha.render(document.createElement('div'), {
-        sitekey: '6LfI-3UrAAAAAKvgE4ZPXpjzaj0OT-yQh51-nYo5',
-        size: 'invisible',
+    function onloadCallback() {
+      widgetId = grecaptcha.render("recaptcha-container", {
+        sitekey: "6LfI-3UrAAAAAKvgE4ZPXpjzaj0OT-yQh51-nYo5",
+        size: "invisible",
         callback: onSubmit
       });
-    };
+    }
 
     document.getElementById("mailing-form").addEventListener("submit", function (e) {
       e.preventDefault();
@@ -36,8 +38,7 @@
     function onSubmit(token) {
       const form = document.getElementById("mailing-form");
       const formData = new FormData(form);
-
-      formData.append("g-recaptcha-response", token); // make sure token is included in Apps Script
+      formData.append("g-recaptcha-response", token);
 
       fetch("https://script.google.com/macros/s/AKfycbwnNRRnA41dXnxeUo4qj_f_UzIzusPBJUIL2k6gtOJTCyk6CZe-yp8KvpgRU4If3KEwqg/exec", {
         method: "POST",

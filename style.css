@@ -30,6 +30,8 @@ p {
 
 form {
   display: flex;
+  width: 100%;           
+  max-width: 100%;        
   gap: 0;
 }
 

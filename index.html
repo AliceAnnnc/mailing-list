@@ -5,15 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Join Our Mailing List</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
   <div class="container">
-    <form action="https://formsubmit.co/alice@alcyratech.com" method="POST">
+    <form id="mailing-form">
       <div class="form-row">
         <input type="email" name="email" placeholder="Enter your email" required />
-        <button type="submit">Subscribe</button>
+        <button class="g-recaptcha"
+                data-sitekey="6LfI-3UrAAAAAKvgE4ZPXpjzaj0OT-yQh51-nYo5"
+                data-callback="onSubmit"
+                data-badge="inline"
+                data-size="invisible">
+          Subscribe
+        </button>
       </div>
     </form>
   </div>
+
+  <script>
+    function onSubmit() {
+      const form = document.getElementById("mailing-form");
+      const formData = new FormData(form);
+
+      fetch("https://script.google.com/macros/s/AKfycbwnNRRnA41dXnxeUo4qj_f_UzIzusPBJUIL2k6gtOJTCyk6CZe-yp8KvpgRU4If3KEwqg/exec", {
+        method: "POST",
+        body: formData
+      })
+      .then(res => res.text())
+      .then(data => {
+        alert(data); // "Message sent successfully." or error text
+        form.reset();
+      })
+      .catch(err => alert("Something went wrong: " + err));
+    }
+  </script>
 </body>
 </html>

@@ -4,23 +4,30 @@ body {
   font-family: 'Open Sans', sans-serif;
   margin: 0;
   padding: 0;
+  /* Adding some padding to the body so the component isn't stuck to the edge */
+  padding: 20px; 
   display: flex;
   justify-content: flex-start;
 }
 
 .container {
   padding: 20px;
-  /* By setting a smaller max-width, the whole component gets a defined width. */
-  /* The form inside will expand to this width, making the input box longer. */
-  max-width: 500px; /* CHANGED FROM 1200px */
-  width: 100%;
+  /* 
+    THIS IS THE KEY CHANGE.
+    By setting a specific width, we force the container to be wider than the text.
+    The form inside will expand to fill this new width.
+  */
+  width: 1000px; /* You can adjust this value to make it longer or shorter */
   text-align: left;
+  /* Removed max-width and width:100% for this specific example to be clearer */
 }
 
 h2 {
   font-size: 22px;
   color: #111;
   margin: 0 0 10px 0;
+  /* Use a heavier font-weight to better match the image */
+  font-weight: 600;
 }
 
 p {
@@ -32,12 +39,11 @@ p {
 form {
   display: flex;
   width: 100%;
-  max-width: 100%;
   gap: 0;
 }
 
 form input[type="email"] {
-  flex: 1; /* This tells the input to grow and fill the available space */
+  flex: 1; /* This is perfect, it tells the input to grow */
   padding: 10px 12px;
   border: 1px solid #ccc;
   border-radius: 4px 0 0 4px;
